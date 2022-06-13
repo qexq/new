@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYEON'S PORTFOLIO</title>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*스크롤 내비게이션*/
+            //프로필 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 600) {
+                    $("#list1").css('background-color', '#fa471d');
+                    $("#list1 a").css('color', 'white');
+                } else {
+                    $("#list1").css('background-color', 'transparent');
+                    $("#list1 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 1100) {
+                    $("#list1").css('background-color', 'transparent');
+                    $("#list1 a").css('color', '#494846');
+                }
+            });
+            //포트폴리오1 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 1800) {
+                    $("#list2").css('background-color', '#fcb81b');
+                    $("#list2 a").css('color', 'white');
+                } else {
+                    $("#list2").css('background-color', 'transparent');
+                    $("#list2 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 2300) {
+                    $("#list2").css('background-color', 'transparent');
+                    $("#list2 a").css('color', '#494846');
+                }
+            });
+            //포트폴리오2 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 2700) {
+                    $("#list3").css('background-color', '#79962b');
+                    $("#list3 a").css('color', 'white');
+                } else {
+                    $("#list3").css('background-color', 'transparent');
+                    $("#list3 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 3200) {
+                    $("#list3").css('background-color', 'transparent');
+                    $("#list3 a").css('color', '#494846');
+                }
+            });
+            //포트폴리오3 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 3200) {
+                    $("#list4").css('background-color', '#f09d06');
+                    $("#list4 a").css('color', 'white');
+                } else {
+                    $("#list4").css('background-color', 'transparent');
+                    $("#list4 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 4300) {
+                    $("#list4").css('background-color', 'transparent');
+                    $("#list4 a").css('color', '#494846');
+                }
+            });
+            //포트폴리오4 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 4400) {
+                    $("#list5").css('background-color', '#2c5f7c');
+                    $("#list5 a").css('color', 'white');
+                } else {
+                    $("#list5").css('background-color', 'transparent');
+                    $("#list5 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 5200) {
+                    $("#list5").css('background-color', 'transparent');
+                    $("#list5 a").css('color', '#494846');
+                }
+            });
+            //배너디자인 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 5300) {
+                    $("#list6").css('background-color', '#948984');
+                    $("#list6 a").css('color', 'white');
+                } else {
+                    $("#list6").css('background-color', 'transparent');
+                    $("#list6 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 6500) {
+                    $("#list6").css('background-color', 'transparent');
+                    $("#list6 a").css('color', '#494846');
+                }
+            });
+            //포토샵 스크롤
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 7000) {
+                    $("#list7").css('background-color', '#61bbd8');
+                    $("#list7 a").css('color', 'white');
+                } else {
+                    $("#list7").css('background-color', 'transparent');
+                    $("#list7 a").css('color', '#494846');
+                }
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 7500) {
+                    $("#list7").css('background-color', 'transparent');
+                    $("#list7 a").css('color', '#494846');
+                }
+            });
+
+
+
+            /*타이핑 애니메이션*/
+            var typingBool = false;
+            var typingIdx = 0;
+            var liIndex = 0;
+            var liLength = $(".typing-txt>ul>li").length;
+
+            // 타이핑될 텍스트를 가져오기 
+            var typingTxt = $(".typing-txt>ul>li").eq(liIndex).text();
+            typingTxt = typingTxt.split(""); // 한글자씩 자름. 
+
+            if (typingBool == false) { // 타이핑이 진행되지 않았다면 
+                typingBool = true;
+
+                var tyInt = setInterval(typing, 100); // 반복동작 
+            }
+
+            function typing() {
+                if (typingIdx < typingTxt.length) { // 타이핑될 텍스트 길이만큼 반복 
+                    $(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+                    typingIdx++;
+
+                } else { //한문장이끝나면
+                    //다음문장으로, 마지막문장이면 다시 첫번째 문장으로 
+
+                    if (liIndex >= liLength - 1) {
+                        liIndex = 0;
+                    } else {
+                        liIndex++;
+                    }
+
+                    //다음문장을 타이핑하기위한 셋팅
+                    typingIdx = 0;
+                    typingBool = false;
+                    typingTxt = $(".typing-txt>ul>li").eq(liIndex).text();
+
+                    //다음문장 타이핑전 1초 쉰다
+                    clearInterval(tyInt);
+                    setTimeout(function () {
+                        $(".typing").html('');
+                        tyInt = setInterval(typing, 100);
+                    }, 1000);
+                }
+            }
+
+
+            /*이벤트 배너*/
+            $("#thumbs button").click(function () {
+                var $img1 = $(this).children("img").attr("src");
+                var $img2 = $img1.substr(-4);
+                var $img3 = $img1.slice(0, -4) + "_big" + $img2;
+                //alert($img3);
+                var $alt = $(this).children("img").attr("alt");
+                $("#popup").fadeIn();
+                $("#popup>img").attr({
+                    "src": $img3,
+                    "alt": $alt
+                });
+                $("#popup>h2").text($alt);
+                $("body").css("overflow", "hidden");
+            });
+
+            $("#popup").click(function () {
+                enterkey();
+            });
+            $(document).keydown(function (key) {
+                //esc키를 누르면
+                if (key.keyCode == 27) {
+                    enterkey();
+                }
+            });
+
+            function enterkey() {
+                $("#popup").fadeOut();
+                $("body").css("overflow", "auto");
+            }
+
+
+
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>header</h1>
+        <section id="navigation">
+            <h2>menu</h2>
+            <div>
+                <p><span>KIM LI YEON</span> Portfolio</p>
+            </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#" id="orange">Home</a>
+                        </li>
+                        <li>
+                            <a href="#con1">Skills</a>
+                        </li>
+                        <li>
+                            <a href="#con2">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#con6">Design</a>
+                        </li>
+                        <li>
+                            <a href="#con7">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <section id="typing_animation">
+            <h2>타이핑 애니메이션</h2><!-- svg로 수정예정 -->
+            <div class="typing-txt">
+                <ul>
+                    <li>HELLO, SIR!</li>
+                    <li>WELCOME TO</li>
+                    <li>MY PORTFOLIO SITE!</li>
+                </ul>
+            </div>
+            <p class="typing"></p>
+        </section>
+
+        <section id="scroll">
+            <h2>scroll icon</h2>
+            <a href="#con1"><img src="img/scroll_img.gif" alt="스크롤 링크"></a>
+        </section>
+    </header>
+
+    <main>
+
+        <section id="scroll_nav">
+			<h2>scroll nav</h2>
+			<nav>
+				<ul>
+					<li id="list1"><a href="#con1"><img src="img/slidingbox_img1.jpg" alt="리스트 스타일1"> Skills</a></li>
+					<li id="list2"><a href="#con2"><img src="img/slidingbox_img2.jpg" alt="리스트 스타일2"> Portfolio1</a></li>
+					<li id="list3"><a href="#con3"><img src="img/slidingbox_img3.jpg" alt="리스트 스타일3"> Portfolio2</a></li>
+					<li id="list4"><a href="#con4"><img src="img/slidingbox_img4.jpg" alt="리스트 스타일4"> Portfolio3</a></li>
+					<li id="list5"><a href="#con5"><img src="img/slidingbox_img5.jpg" alt="리스트 스타일5"> Portfolio4</a></li>
+					<li id="list6"><a href="#con6"><img src="img/slidingbox_img6.jpg" alt="리스트 스타일6"> Design</a></li>
+					<li id="list7"><a href="#con7"><img src="img/slidingbox_img7.jpg" alt="리스트 스타일7"> About</a></li>
+				</ul>
+			</nav>
+        </section>	
+
+        <section class="content" id="con1">
+            <h2>소개</h2>
+            <div id="picture">
+                <img src="img/haru2.jpg" alt="증명사진">
+            </div>
+            <div id="skill">
+                <img src="img/skill_img.jpg" alt="스킬이미지">
+            </div>
+        </section>
+
+		<section class="content" id="con2">
+			<h2>포트폴리오1</h2>
+			<!-- 	<div class="first">
+				<h3>CHANEL</h3>
+				<h5>샤넬향수의 종류와 특징, 히스토리등을 알수 있는 반응형 웹사이트.</h5>
+				<p><span>Viewport</span> 반응형 / 웹표준 / 웹접근성</p>
+				<p><span>Program</span> HTML / CSS / JQUERY</p>
+				<p><span>Work</span> 기획 / 디자인 / 기획 참여도 100%</p>
+				<div>
+					<a href="planning1/index.html" target="_blank">사이트 기획서</a>
+					<a href="https://dahernt.cafe24.com/web/chanel/" target="_blank">웹사이트 바로가기</a>
+				</div>
+			</div>
+			<div class="second">
+				<img src="images/portpolio1_img.png" alt="포트폴리오1 이미지">
+			</div>-->
+		</section>
+
+		<section class="content" id="con3">
+			<h2>포트폴리오2</h2>
+<!-- 			<div>
+				<img src="images/portpolio2_img.png" alt="포트폴리오1 이미지">
+			</div>
+			<div>
+				<h3>SWAROVSKI</h3>
+				<h5>세계적 쥬얼리 브랜드 스와로브스키 웹사이트 리뉴얼.</h5>
+				<p><span>Viewport</span> 웹표준 / 웹접근성</p>
+				<p><span>Program</span> HTML / CSS / JQUERY</p>
+				<p><span>Work</span> 기획 / 디자인 / 기획 참여도 100%</p>
+				<div>
+					<a href="planning2/index.html" target="_blank">사이트 기획서</a>
+					<a href="https://dahernt.cafe24.com/web/swarovski/" target="_blank">웹사이트 바로가기</a>
+					<a href="swarovski_report.html" target="blank">사이트 사후관리</a>
+				</div>
+			</div>		 -->	
+		</section>
+
+		<section class="content" id="con4">
+			<h2>포트폴리오3</h2>
+			<!-- <div>
+				<h3>HOMESPACE</h3>
+				<h5>가상의 인테리어, 리모델링 전문 업체 반응형 웹사이트.</h5>
+				<p><span>Viewport</span> 반응형 / 웹표준 / 웹접근성</p>
+				<p><span>Program</span> HTML / CSS / JQUERY</p>
+				<p><span>Work</span> 기획 / 디자인 / 기획 참여도 100%</p>
+				<div>
+					<a href="planning3/index.html" target="_blank">사이트 기획서</a>
+					<a href="homespace_report.html" target="blank">프로젝트 보고서</a>
+					<a href="https://dahernt.cafe24.com/web/homespace/" target="_blank">웹사이트 바로가기</a>
+				</div>
+			</div>
+			<div>
+				<img src="images/portpolio3_img.png" alt="포트폴리오1 이미지">
+			</div> --> -->
+		</section>
+
+		<section class="content" id="con5">
+ 			<h2>포트폴리오4</h2>
+			<!--<div>
+				<img src="images/portpolio4_img.png" alt="포트폴리오4 이미지">
+			</div>
+			<div>
+				<h3>하얀미소치과</h3>
+				<h5>가상의 치과 전문의료기관 웹사이트 제작.</h5>
+				<p><span>Viewport</span> 웹표준 / 웹접근성</p>
+				<p><span>Program</span> HTML / CSS / JQUERY</p>
+				<p><span>Work</span> 기획 / 디자인 / 기획 참여도 100%</p>
+				<div>
+					<a href="planning4/index.html" target="_blank">사이트 기획서</a>
+					<a href="dental_report.html" target="_blank">프로젝트 보고서</a>
+					<a href="https://dahernt.cafe24.com/web/dental/" target="_blank">웹사이트 바로가기</a>	
+				</div>
+			</div>	 -->		
+		</section>
+	</main>
+
+
+    <section class="content" id="con6">
+        <h3>DESIGNED BY ME</h3>
+    </section>
+ <!--  
+    <div id="thumbs">
+       <div>
+            <ul>
+                <li class="web">
+                    <button type="button">
+                        <img src="images/design01.jpg" alt="코카콜라 상세페이지 디자인">
+                        <b>코카콜라<br>상세페이지</b>
+                    </button>
+                </li>
+                <li class="web">
+                    <button type="button">
+                        <img src="images/design02.jpg" alt="제주항공 상세페이지 디자인">
+                        <b>제주항공<br>상세페이지</b>
+                    </button>
+                </li>
+                <li class="web">
+                    <button type="button">
+                        <img src="images/design03.jpg" alt="소이캔들 상세 페이지 디자인">
+                        <b>소이캔들<br>상세 페이지</b>
+                    </button>
+                </li>
+            </ul>
+            <ul>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design04.jpg" alt="설맞이 고객감사 이벤트 디자인">
+                        <b>설맞이<br> 고객감사 이벤트</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design05.jpg" alt="할로윈 이벤트 디자인">
+                        <b>할로윈 이벤트</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design06.jpg" alt="재즈 페스티벌 팜플렛">
+                        <b>재즈 페스티벌</b>
+                    </button>
+                </li>
+            </ul>
+            <ul>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design07.jpg" alt="레모나 포스팅 이벤트 디자인">
+                        <b>레모나<br>포스팅 이벤트</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design08.jpg" alt="신제품 홍보 디자인">
+                        <b>신제품 홍보</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design09.jpg" alt="키엘 신제품 홍보 디자인">
+                        <b>키엘 신제품 홍보</b>
+                    </button>
+                </li>
+            </ul>
+            <ul>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design10.jpg" alt="즐공 1+1 이벤트 디자인">
+                        <b>즐공 1+1 이벤트</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design11.jpg" alt="음료쿠폰 이벤트 디자인">
+                        <b>음료쿠폰 이벤트</b>
+                    </button>
+                </li>
+                <li class="event">
+                    <button type="button">
+                        <img src="images/design12.jpg" alt="올리브영 향수 할인 이벤트 디자인">
+                        <b>올리브영 향수<br>할인 이벤트</b>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>-->
+
+    <section id="popup" onkeyup="enterkey()">
+        <h2>디자인</h2>
+        <img src="images/design01.jpg" alt="코카콜라 상세페이지">
+    </section> 
+    
+    <section id="con7">
+        <h3>ABOUT ME</h3>
+        <div>
+            <ul class="thumb2">
+                <li>
+                    <button type="button">
+                        <img src="img/1.jpg" alt="1">
+                        <b>언제나<br>열심히</b>
+                    </button>
+                </li>
+            </ul>
+            <ul class="thumb2">
+                <li>
+                    <button type="button">
+                        <img src="img/2.jpg" alt="2">
+                        <b>꼼꼼히<br>성실히</b>
+                    </button>
+                </li>
+            </ul>
+            <ul class="thumb2">
+                <li>
+                    <button type="button">
+                        <img src="img/3.JPG" alt="3">
+                        <b>꾸준히<br>해내겠습니다</b>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </section> 
+
+    <footer>
+        <h3>CONTACT 💌</h3>
+        <br>
+        <div>
+            <p>전화 <span>010-3271-0250</span></p>
+            <p>이메일 <span>qexq09@naver.com</span></p>
+        </div>
+        <br>
+        <br>
+        <p class='far fa-copyright'> Copyright 2022 All Rights Reserved</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>
